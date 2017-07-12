@@ -1,3 +1,8 @@
+### NVM
+
+ZSH_THEME_NVM_PROMPT_PREFIX="$fg[white]%}%B⬡%b %{$reset_color%}$fg[blue]%}"
+ZSH_THEME_NVM_PROMPT_SUFFIX="%{$reset_color%}"
+
 local return_status="%(?..%{$fg[red]%}%(?..⏎)%{$reset_color%})"
 
 if [[ $UID -eq 0 ]]; then
@@ -11,8 +16,9 @@ fi
 
 local current_dir='%{$terminfo[bold]$fg[blue]%}%~%{$reset_color%}'
 local git_branch='$(git_prompt_info)%{$reset_color%}'
+local nvm_info='$(nvm_prompt_info)'
 
-PROMPT="┌─[ ${user_host} ]─[ ${current_dir} ]${git_branch}
+PROMPT="┌─[${user_host}]─[ ${nvm_info} ]─[ ${current_dir} ]${git_branch}
 └─%B${user_symbol}%b "
 RPS1="%B${return_status}%b"
 
