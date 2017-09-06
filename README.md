@@ -16,9 +16,9 @@ It's got:
 └─❯❯❯ echo "hello world"
 ```
 
-How to download:
+## How to download:
 
-1. Place the `so-extra.zsh-theme` in `~/.oh-my-zsh/themes/`:
+1. Place the `so-extra.zsh-theme` in `~/.oh-my-zsh/themes/`. Here's a copy & paste command:
 ```
 git clone https://github.com/kevdez/so-extra-zsh-theme.git so-extra && \
 cd $_ && \
@@ -27,4 +27,4 @@ cd .. && \
 rm -rf so-extra
 ```
 
-2. Open `.zshrc` file and set the property `ZSH_THEME` to `ZSH_THEME="so-extra"`. Save and close.
+2. Open `.zshrc` file and set the property `ZSH_THEME` to `ZSH_THEME="so-extra"`. Save and close. Done.
