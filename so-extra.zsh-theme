@@ -10,16 +10,16 @@ if [[ $UID -eq 0 ]]; then
     local user_symbol='#'
 else
     #local user_host='%{$terminfo[bold]$fg[green]%}%n@%m%{$reset_color%}'
-    local user_symbol='❯❯❯'
-    local user_host='%{$terminfo[bold]$fg[cyan]%}%n%{$reset_color%} @$fg[magenta]%}%t%{$reset_color%}'
+    local user_symbol='%{$fg[red]%}%B❯❯❯%b%{$reset_color%}'
+    local user_host='%{$terminfo[bold]$fg[cyan]%}%n%{$reset_color%} @ $fg[magenta]%}%t%{$reset_color%}'
 fi
 
 local current_dir='%{$terminfo[bold]$fg[blue]%}%~%{$reset_color%}'
 local git_branch='$(git_prompt_info)%{$reset_color%}'
 local nvm_info='$(nvm_prompt_info)'
 
-PROMPT="┌─[${user_host}]─[ ${nvm_info} ]─[ ${current_dir} ]${git_branch}
-└─%B${user_symbol}%b "
+PROMPT="%{$fg[cyan]%}┌─%{$reset_color%}%{$fg[blue]%}[%{$reset_color%} ${user_host} %{$fg[blue]%}]%{$reset_color%}%{$fg[cyan]%}─%{$reset_color%}%{$fg[blue]%}[%{$reset_color%} ${nvm_info} %{$fg[blue]%}]%{$reset_color%}%{$fg[cyan]%}─%{$reset_color%}%{$fg[blue]%}[%{$reset_color%} ${current_dir} %{$fg[blue]%}]${git_branch}
+%{$fg[cyan]%}└─%B${user_symbol}%b%{$reset_color%} "
 RPS1="%B${return_status}%b"
 
 RPROMPT='${return_status}$(git_prompt_status)'
