@@ -1,7 +1,10 @@
 ### NVM
 
-ZSH_THEME_NVM_PROMPT_PREFIX="$fg[white]%}%B⬡%b %{$reset_color%}$fg[blue]%}"
+ZSH_THEME_NVM_PROMPT_PREFIX="$fg[white]%}⬡ node:%b %{$reset_color%}$fg[blue]%}"
 ZSH_THEME_NVM_PROMPT_SUFFIX="%{$reset_color%}"
+
+ZSH_THEME_RUST_INFO_PREFIX="$fg[white]%}%B⬡%b %{$reset_color%}$fg[blue]%}"
+ZSH_THEME_RUST_INFO_SUFFIX="%{$reset_color%}"
 
 local return_status="%(?..%{$fg[red]%}%(?..⏎)%{$reset_color%})"
 
@@ -17,8 +20,9 @@ fi
 local current_dir='%{$terminfo[bold]$fg[blue]%}%~%{$reset_color%}'
 local git_branch='$(git_prompt_info)%{$reset_color%}'
 local nvm_info='$(nvm_prompt_info)'
+local rust_info="$fg[white]%}⬡ rust:%b $fg[blue]%}$(echo $(rustc -V) | awk '{print $2}')%{$reset_color%}"
 
-PROMPT="%{$fg[cyan]%}┌─%{$reset_color%}%{$fg[blue]%}[%{$reset_color%} ${user_host} %{$fg[blue]%}]%{$reset_color%}%{$fg[cyan]%}─%{$reset_color%}%{$fg[blue]%}[%{$reset_color%} ${nvm_info} %{$fg[blue]%}]%{$reset_color%}%{$fg[cyan]%}─%{$reset_color%}%{$fg[blue]%}[%{$reset_color%} ${current_dir} %{$fg[blue]%}]${git_branch}
+PROMPT="%{$fg[cyan]%}┌─%{$reset_color%}%{$fg[blue]%}[%{$reset_color%} ${user_host} %{$fg[blue]%}]%{$reset_color%}%{$fg[cyan]%}─%{$reset_color%}%{$fg[blue]%}[%{$reset_color%} ${nvm_info} ${rust_info} %{$fg[blue]%}]%{$reset_color%}%{$fg[cyan]%}─%{$reset_color%}%{$fg[blue]%}[%{$reset_color%} ${current_dir} %{$fg[blue]%}]${git_branch}
 %{$fg[cyan]%}└─%B${user_symbol}%b%{$reset_color%} "
 RPS1="%B${return_status}%b"
 
